@@ -12,3 +12,8 @@ def ShowIndex(request):
 def ShowHomePage(request):
 
     return render(request, 'home.html')
+
+
+def ListPosts(request):
+
+    return render(request, 'posts.html')

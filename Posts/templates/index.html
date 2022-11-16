@@ -67,18 +67,18 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="{% static 'Post/css/cover.css' %}" rel="stylesheet">
+    <link href="{% static 'Posts/css/cover.css' %}" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
     
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
       <h3 class="float-md-start mb-0">The Cucine Blog</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link fw-bold py-1 px-1 active" aria-current="page" href="#">Home</a>
+        <a class="nav-link fw-bold py-1 px-1" aria-current="page" href="{% url 'Home' %}">Home</a>
         <a class="nav-link fw-bold py-1 px-1" href="#">About</a>
-        <a class="nav-link fw-bold py-1 px-1" href="#">Pages</a>
+        <a class="nav-link fw-bold py-1 px-1" href="{% url 'List Posts' %}">Pages</a>
         <a class="nav-link fw-bold py-1 px-1" href="#">LogIn</a>
         <a class="nav-link fw-bold py-1 px-1" href="#">Signup</a>
         <a class="nav-link fw-bold py-1 px-1" href="#">Messages</a>
@@ -88,12 +88,9 @@
     </div>
   </header>
 
-  {% comment %} <main class="px-3">
-    <h1>Welcome to The Cucine Blog</h1>
-    <p class="lead">The ideal place to know everything about the best cuisine in the world</p>
-  </main> {% endcomment %}
-  {% block dynamicCode %}
   
+  {% block dynamicCode %}
+
   {% endblock %}
   <footer class="mt-auto text-white-50">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">

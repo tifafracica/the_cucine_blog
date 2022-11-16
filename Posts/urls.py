@@ -18,6 +18,6 @@ from django.urls import path
 from Posts import views
 
 urlpatterns = [
-    path('', views.ShowHomePage, name='index'),
-    
+    path('', views.ShowHomePage, name='Home'),
+    path('pages/', views.ListPosts, name='List Posts'),
 ]
