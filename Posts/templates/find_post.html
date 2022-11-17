@@ -1,0 +1,20 @@
+<form action="" method="get">
+
+    <input type="text" name="title" id="title">
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% if posts %}
+
+  
+    {% for post in posts %}
+        <h3>The Blog Post with {{post.title}}</h3>
+        <p>{{post.content}} </p>
+    {% endfor %}
+    
+
+{% else %}
+    <p>Post not found </p>
+{% endif %}

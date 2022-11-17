@@ -45,3 +45,14 @@ def CreateAPost(request):
 
     return render(request, 'create_post.html', {'create_form': create_form})
 
+
+def findPost(request):
+
+    if request.GET.get('title', False): 
+        title = request.GET['title']
+        posts = Post.objects.filter(title__icontains=title)
+
+        return render(request, 'find_post.html', {'posts': posts})
+    else:
+        response = 'Post no found :('
+    return render(request, 'find_post.html', {'response': response})

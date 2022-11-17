@@ -27,4 +27,4 @@ def CompleteProfile(request):
     else:
         complete_profile_form = CompleteProfileForm()
 
-    return render(request, 'complite_profile.html', {'complete_profile_form': complete_profile_form})
+    return render(request, 'complete_profile.html', {'complete_profile_form': complete_profile_form})

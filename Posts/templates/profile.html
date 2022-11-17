@@ -4,5 +4,7 @@
 
 {% block dynamicCode %}
   <h1>Profile pages</h1>
-  <a class="nav-link fw-bold py-1 px-1" aria-current="page" href="{% url 'Complete Profile' %}">Complete your Profile</a>
+  <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <a class="btn btn-light" aria-current="page" href="{% url 'Complete Profile' %}">Complete your Profile</a>
+  </div>
 {% endblock %}

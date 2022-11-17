@@ -4,5 +4,7 @@
 
 {% block dynamicCode %}
   <h1>Messages page</h1>
-   <a class="nav-link fw-bold py-1 px-1" aria-current="page" href="{% url 'Create Message' %}">Send a Message</a>
+  <div class="d-grid gap-2 col-2 mx-auto mt-5">
+    <a class="btn btn-light button-width" aria-current="page" href="{% url 'Create Message' %}">Send a Message</a>
+  </div>
 {% endblock %}

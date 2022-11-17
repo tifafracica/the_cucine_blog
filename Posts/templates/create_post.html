@@ -1,15 +1,7 @@
 <form action="" method="post">{% csrf_token %}
-	<div class="mb-3">
-		<label for="title" class="form-label">Title</label>
-		<input name="title" type="text" class="form-control" id="title" placeholder="Your Post Title">
-	</div>
-		<div class="mb-3">
-		<label for="content" class="form-label">Post text</label>
-		<textarea name="content" class="form-control" id="content" rows="3"></textarea>
-	</div>
-	<div>
-		<label for="post_img" class="form-label">Photo</label>
-		<input name="post_img" type="text" class="form-control" id="post_img" placeholder="photo URL">
-	</div>
+	<h3>Create your Post</h3>
+	<table>
+        {{create_form.as_table}}
+    </table>
 	<button type="submit" class="btn btn-light">Publish</button>
 </form>
