@@ -1,0 +1,15 @@
+<form action="" method="post">{% csrf_token %}
+  <div class="mb-3">
+    <label for="description" class="form-label">Talk About Yourself</label>
+    <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+  </div>
+	<div class="mb-3">
+		<label for="web_page_link" class="form-label">Web page URL</label>
+		<input name="web_page_link" type="text" class="form-control" id="web_page_link" placeholder="Your Post Title">
+	</div>
+	<div>
+		<label for="photo" class="form-label">Profile Photo</label>
+		<input name="photo" type="text" class="form-control" id="photo">
+	</div>
+  <button type="submit" class="btn btn-light">Publish</button>
+</form>

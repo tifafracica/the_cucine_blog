@@ -20,4 +20,6 @@ from Posts import views
 urlpatterns = [
     path('', views.ShowHomePage, name='Home'),
     path('pages/', views.ListPosts, name='List Posts'),
+    path('about', views.ShowAboutPage, name='About Page'),
+    path("create_page/", views.CreateAPost, name="Create Page")
 ]

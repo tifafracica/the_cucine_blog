@@ -1,4 +1,4 @@
-"""Blogpage URL Configuration
+"""Myfirstmvt URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -13,12 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, re_path, include
+
+from django.urls import path
+from Messages import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path('', include('Posts.urls')),
-    re_path('', include('Messages.urls')),
-    re_path('', include('Profiles.urls'))
+    path('messages/', views.ShowMessages, name='List Messages'),
+    path("create_message/", views.CreateAMessage, name="Create Message")
+    
 ]
