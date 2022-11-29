@@ -1,9 +1,7 @@
 <form action="" method="post">{% csrf_token %}
   <h3>Send a Message</h3>
-  
-    <table>
-        {{create_message_form.as_table}}
-    </table>
-
+  <table>
+    {{create_message_form.as_table}}
+  </table>
   <button type="submit" class="btn btn-light">Publish</button>
 </form>

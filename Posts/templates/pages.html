@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block dynamicCode %}
+  <h1>Read all our recepies posts</h1>
+  <div class="d-flex gap-2 mt-5 mb-5" style="margin-left: auto;">
+    <a class="btn btn-light button-width" aria-current="page" href="{% url 'Create Page' %}">Create a Post</a>
+    <a class="btn btn-light button-width" aria-current="page" href="{% url 'Search Page' %}">Search a Post</a>
+  </div>
+  <div class='container mb-5'>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for post in posts %}
+        <div class='col'>
+          <div class="card" style='height: 350px;'>
+            <img src="{% if post.post_img %}{{post.post_img.url}}"{% else %}''{% endif %} class="bd-placeholder-img card-img-top" alt="{{post.post_img.name}}" width='100%' height='225' style='object-fit: cover;'/>
+            <div class="card-body">
+              <h5 class="card-title text-dark mb-3">{{post.title}}</h5>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div> 
+        </div>  
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

@@ -6,8 +6,8 @@ from .forms import CreatePostForm
 # Create your views here.
 
 
-def ShowIndex(request):
-    
+def ShowIndex(request):    
+
     return render(request, 'index.html')
 
 
@@ -18,17 +18,23 @@ def ShowHomePage(request):
 
 def ListPosts(request):
 
-    return render(request, 'posts.html')
+    posts = Post.objects.all()
+
+    context = {'posts': posts}
+
+    return render(request, 'pages.html', context=context)
+
+
 
 def ShowAboutPage(request):
 
     return render(request, 'about.html')
 
-def CreateAPost(request):
-    
+
+def CreateAPost(request):    
     if request.method == 'POST':
 
-        create_form = CreatePostForm(request.POST)
+        create_form = CreatePostForm(request.POST, request.FILES)
 
         if create_form.is_valid():
 
@@ -38,21 +44,27 @@ def CreateAPost(request):
 
             page_to_post.save()
 
-            return render(request, 'posts.html')
+            return render(request, 'pages.html')
 
     else:
+
         create_form = CreatePostForm()
 
-    return render(request, 'create_post.html', {'create_form': create_form})
+    return render(request, 'create_page.html', {'create_form': create_form})
 
 
-def findPost(request):
+def findPage(request):
 
     if request.GET.get('title', False): 
+
         title = request.GET['title']
+
         posts = Post.objects.filter(title__icontains=title)
 
-        return render(request, 'find_post.html', {'posts': posts})
+        return render(request, 'find_page.html', {'posts': posts})
+
     else:
+
         response = 'Post no found :('
-    return render(request, 'find_post.html', {'response': response})
+
+    return render(request, 'find_page.html', {'response': response})

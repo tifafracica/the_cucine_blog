@@ -15,12 +15,16 @@ Including another URLconf
 """
 
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 from Posts import views
 
 urlpatterns = [
     path('', views.ShowHomePage, name='Home'),
-    path('pages/', views.ListPosts, name='List Posts'),
+    path('pages/', views.ListPosts, name='List Pages'),
     path('about', views.ShowAboutPage, name='About Page'),
     path("create_page/", views.CreateAPost, name="Create Page"),
-    path('search_posts/', views.findPost, name='Search Post')
+    path('search_page/', views.findPage, name='Search Page'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
