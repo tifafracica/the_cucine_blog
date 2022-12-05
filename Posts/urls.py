@@ -21,10 +21,13 @@ from Posts import views
 
 urlpatterns = [
     path('', views.ShowHomePage, name='Home'),
-    path('pages/', views.ListPosts, name='List Pages'),
     path('about', views.ShowAboutPage, name='About Page'),
-    path("create_page/", views.CreateAPost, name="Create Page"),
     path('search_page/', views.findPage, name='Search Page'),
+    path('get_pages/', views.PostList.as_view(), name='List Posts'),
+    path("create_page/", views.PostCreation.as_view(), name="Create Post"),
+    path("get_page/<pk>", views.PostDetail.as_view(), name="Get Post"),
+    path("update_page/<pk>", views.PostUpdate.as_view(), name='Update Post'),
+    path("post_confirm_delete/<pk>", views.PostDelete.as_view(), name='Delete Post'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

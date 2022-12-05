@@ -1,0 +1,4 @@
+<h1>{{post.title}}</h1>
+<img src="{% if post.post_img %}{{post.post_img.url}}"{% else %}''{% endif %} />
+<p>{{post.content}}</p>
+<a href="{% url 'List Posts' %}" type='button' class="btn btn-light">Go Back</a>

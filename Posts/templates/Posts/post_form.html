@@ -1,7 +1,7 @@
 <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
 	<h3>Create your Post</h3>
-	<table>
-        {{create_form.as_table}}
-    </table>
+	{{ form.as_p }}
 	<button type="submit" class="btn btn-light">Publish</button>
 </form>
+
+<a href="{% url 'List Posts' %}" class="btn btn-light">Go Back</a>
