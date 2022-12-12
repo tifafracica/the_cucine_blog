@@ -1,30 +1,25 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import (
+    CreateView,
+    UpdateView,
+    DeleteView
+)
+from django.urls import reverse_lazy
+
+from django.contrib.auth.models import User
+from .forms import ProfileForm
 from .models import Profile
-from .forms import CompleteProfileForm
+
+
 
 # Create your views here.
 def ShowProfilePage(request):
-
-    return render(request, 'profile.html')
-
-
-def CompleteProfile(request):
-    
-    if request.method == 'POST':
-
-        complete_profile_form = CompleteProfileForm(request.POST)
-
-        if complete_profile_form.is_valid():
-
-            clean_form = complete_profile_form.cleaned_data
-
-            page_to_post = Profile(description=clean_form['description'], web_page_link=clean_form['web_page_link'],  photo=clean_form['photo'])
-
-            page_to_post.save()
-
-            return render(request, 'profile.html')
-
-    else:
-        complete_profile_form = CompleteProfileForm()
-
-    return render(request, 'complete_profile.html', {'complete_profile_form': complete_profile_form})
+    return render(request, 'Posts/templates/Profiles/profile.html')
+# Edit Profile View
+class ProfileView(UpdateView):
+    model = User
+    form_class = ProfileForm
+    success_url = reverse_lazy('home')
+    template_name = 'Posts/templates/Profiles/profile_form.html'

@@ -18,6 +18,6 @@ from django.urls import path
 from Profiles import views
 
 urlpatterns = [
-    path('profile/', views.ShowProfilePage, name='Profile'),
-    path('complete_profile/', views.CompleteProfile, name='Complete Profile')
+    path('accounts/profile/', views.ShowProfilePage, name='Profile'),
+    path('accounts/profile/<int:pk>/', views.ProfileView.as_view(), name='Edit Profile')
 ]

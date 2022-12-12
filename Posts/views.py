@@ -8,8 +8,11 @@ from django.views.generic.edit import (
     UpdateView,
     DeleteView
 )
-
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView, LogoutView
 from .models import Post
+from django.contrib.auth.models import User
+from .forms import SignUpForm
 
 
 # Create your views here.
@@ -57,3 +60,13 @@ class PostDelete(DeleteView):
     model = Post
     success_url = '/get_pages'
 
+class SignUpView(CreateView):
+    form_class = SignUpForm
+    success_url = reverse_lazy('Home')
+    template_name = 'User/registration.html'
+
+class AdminLoginView(LoginView):
+    template_name = 'User/login.html'
+
+class AdminLogoutView(LogoutView):
+    template_name = 'User/logout.html'

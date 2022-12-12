@@ -28,6 +28,9 @@ urlpatterns = [
     path("get_page/<pk>", views.PostDetail.as_view(), name="Get Post"),
     path("update_page/<pk>", views.PostUpdate.as_view(), name='Update Post'),
     path("post_confirm_delete/<pk>", views.PostDelete.as_view(), name='Delete Post'),
+    path('signup/', views.SignUpView.as_view(), name='Sign Up'),
+    path('accounts/login/', views.AdminLoginView.as_view(), name='Login'),
+    path('accounts/logout/', views.AdminLogoutView.as_view(), name='Logout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
