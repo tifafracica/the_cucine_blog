@@ -1,7 +1,7 @@
-<form action="" method="post">{% csrf_token %}
-	<h3></h3>
-  <table>
-    {{complete_profile_form.as_table}}
-  </table>
-  <button type="submit" class="btn btn-light">Publish</button>
-</form>
+<h2>Profile Page</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <button type="submit">Save changes</button>
+</form> 

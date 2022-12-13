@@ -12,12 +12,14 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from .models import Post
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import SignUpForm
 
 
 # Create your views here.
 
 def ShowIndex(request):   
+    model = User
     return render(request, 'index.html')
 
 
@@ -38,11 +40,11 @@ def findPage(request):
         response = 'Post no found :('
     return render(request, 'find_page.html', {'response': response})
 
-class PostList(ListView):
+class PostList(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'Posts/post_list.html'
 
-class PostCreation(CreateView):
+class PostCreation(LoginRequiredMixin, CreateView):
     model = Post
     success_url = '/get_pages'
     fields = ['title', 'content', 'post_img']
@@ -67,6 +69,7 @@ class SignUpView(CreateView):
 
 class AdminLoginView(LoginView):
     template_name = 'User/login.html'
+    
 
 class AdminLogoutView(LogoutView):
     template_name = 'User/logout.html'
