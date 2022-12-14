@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Posts',
     'Messages',
-    'Profiles'
+    'Profiles',
+    # add django channels
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Blogpage.urls'
+
+ASGI_APPLICATION = 'Blogpage.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 TEMPLATES = [
     {

@@ -18,7 +18,6 @@ from django.urls import path
 from Messages import views
 
 urlpatterns = [
-    path('messages/', views.ShowMessages, name='List Messages'),
-    path("create_message/", views.CreateAMessage, name="Create Message")
+    path("messages/", views.chatPage, name="Chat page")
     
 ]
